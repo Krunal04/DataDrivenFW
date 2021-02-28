@@ -8,6 +8,7 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 
 public class DriverExe {
@@ -63,8 +64,12 @@ public void startbrowser () {
 	
 	driver.manage().window().maximize();
 	driver.get(prop.getProperty("URL"));
-	
-	
+		
+}
+
+@AfterSuite
+public void closebrowser() {
+driver.quit();
 }
 
 
